@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body class="max-w-[1300px] mx-auto">
+    <div class="flex items-center justify-between p-5">
+        <div >
+            <h1 class='text-3xl font-bold'>Animal Prediction</h1>
+            <h2 class="mt-4 text-emerald-500" id="bg-body">Color Code: #FFFFFF</h2>
+        </div>
+        <div >
+            <button class="border-2 border-blue-900 p-2 rounded-full uppercase to-indigo-400" id="color-btn">Update Theme</button>
+        </div>
+    </div>
+
+    <div class="login">
+        <!-- Main Input For Receiving Query to our ML -->
+        <form class = 'flex flex-col w-[600px] m-auto' action="{{ url_for('predict')}}" method="post">
+            <input class="border-blue-900 border-b-2 outline-none mb-3" type="text" name="Sepal_Length" placeholder="" required="required" />
+            <input class="border-blue-900 border-b-2 outline-none mb-3" type="text" name="Sepal_Width" placeholder="" required="required" />
+            <input class="border-blue-900 border-b-2 outline-none mb-3" type="text" name="Petal_Length" placeholder="" required="required" />
+            <input class="border-blue-900 border-b-2 outline-none mb-3" type="text" name="Petal_Width" placeholder="" required="required" />
+    
+            <button type="submit" class="border-2 border-blue-900 p-2 rounded-full uppercase to-indigo-400 w-[120px]">Predict</button>
+        </form>
+    
+        <br>
+        <br>
+        {{ prediction_text }}
+    
+    </div>
+    <script src="generate_color.js"></script>
+</body>
+</html>
